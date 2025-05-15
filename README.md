@@ -130,6 +130,18 @@ diff --git src/main.tsx src/main.tsx
 +  createRoot(root).render(app);
 +}
 
+#Updated build script to support SSG and prerendering
+#NOTE: PROVIDE INSTRUCTION ON HOW TO DO THIS MANUALLY AS THIS CANNOT BE IMPLEMENTED BY YOU
+diff --git package.json package.json
+--- package.json
++++ package.json
+@@ -8 +8,4 @@
+-    "build": "vite build",
++    "build": "npm run build:client && npm run build:server && npm run build:prerender",
++    "build:client": "vite build", # Builds the client-side app
++    "build:server": "vite build --ssr src/entry-server.tsx --outDir dist/server", # Builds the SSR entry point
++    "build:prerender": "node prerender", # Runs prerendering to generate static pages
+
 ----
 ### New!! Full Website SEO Prompt
 
